@@ -1,0 +1,38 @@
+{
+  "retrieved_at": "2026-10-26",
+  "corpus_note": "Small attributed sample corpus assembled from user-provided PDFs of publicly visible SVG-Baden pages and visible web extracts. Seminar portal capture listed 17 hits but the PDF omitted provider, price and individual course URLs in captured text; no incomplete course cards are published. Retrieval date refers to review of supplied captures (2026-10-26).",
+  "sources": [
+    {
+      "id": "about",
+      "title": "Über uns – SVG-Baden",
+      "url": "https://www.svg-baden.de/ueber-uns",
+      "retrieved_at": "2026-10-26",
+      "provider": "SVG-Baden",
+      "text": "Die SVG-Baden eG ist Partner für kleine und mittelständische Unternehmen. Das Leistungsspektrum reicht von Arbeitssicherheit und Bildungsangeboten bis zum Zubehör für Fahrzeugflotten. Außerdem werden Lösungen im betrieblichen Gesundheitsmanagement beschrieben. Genossenschaftlich unterstützt SVG-Baden Unternehmen dabei, sicherer, vorausschauender und gesünder zu arbeiten. Die beschriebenen Bereiche umfassen Arbeitssicherheit, Bildungswerk, Tank und Maut, technischen Handel sowie Versicherungen. Diese Angaben sind eine Zusammenfassung des öffentlich sichtbaren Textes der Seite."
+    },
+    {
+      "id": "home",
+      "title": "SVG-Baden – Sicherheit und Mobilität",
+      "url": "https://www.svg-baden.de/",
+      "retrieved_at": "2026-10-26",
+      "provider": "SVG-Baden",
+      "text": "Die SVG-Baden Website beschreibt Angebote in den Bereichen Aus- und Weiterbildung, Flottenmanagement, technischer Handel, Arbeitssicherheit, Versicherung und Service. Als allgemeine Ansprechstellen werden ServiceTeams in Freiburg und Mannheim genannt. Freiburg: 0761 70864 40, freiburg@svg-baden.de. Mannheim: 0621 41006 0, mannheim@svg-baden.de. Die Seite bietet außerdem Verweise zu Standorten und Ansprechpersonen."
+    },
+    {
+      "id": "digital-safety",
+      "title": "Digitales Arbeitsschutzmanagementsystem – SVG-Baden",
+      "url": "https://www.svg-baden.de/arbeitssicherheit/digitales-arbeitsschutzmanagementsystem",
+      "retrieved_at": "2026-10-26",
+      "provider": "SVG-Baden",
+      "text": "Die veröffentlichte Beschreibung des digitalen Arbeitsschutzmanagementsystems sagt, dass Unternehmen und ihre zuständige SVG-Baden-Fachkraft für Arbeitssicherheit arbeitssicherheitsrelevante Informationen digital einsehen und bearbeiten sowie digitale Unterweisungen durchführen können. Unterweisungen können laut Seite auf Mitarbeitende und Tätigkeiten zugeschnitten, zeit- und ortsunabhängig und in verschiedenen Sprachen erfolgen; die Seite nennt eine anschließende Wirksamkeitskontrolle. Als digital unterstützte Aufgaben führt die Seite Begehung/Audit, Gefährdungsbeurteilung, Unterweisungen, Gefahrstoffmanagement, Vorsorgemanagement, Unfallmanagement und Betriebsmittelprüfung auf. Dies ist ausschließlich eine Wiedergabe der veröffentlichten Produktbeschreibung und keine Arbeitsschutzberatung."
+    },
+    {
+      "id": "seminars",
+      "title": "Seminar-Portal – SVG-Baden",
+      "url": "https://www.svg-baden.de/seminar-portal",
+      "retrieved_at": "2026-10-26",
+      "provider": "SVG-Baden (Portal; Veranstalter je Kurs unterschiedlich)",
+      "text": "Die SVG-Baden Seminar-Portal-Seite verlinkt auf ein Seminarportal mit Kursangeboten. Die im Portal sichtbaren Kurse können von unterschiedlichen regionalen SVG-Organisationen veranstaltet werden. Der tatsächliche Veranstalter, Termin, Ort und Preis müssen für jeden Kurs einzeln auf der Originalseite geprüft werden. In der hier gespeicherten Stichprobe werden keine Einzelkurse oder Seminardaten aufgeführt. Für aktuelle Termine, Veranstalter und Preise ist das offizielle Seminar-Portal maßgeblich. A user-provided PDF print capture (retrieved 2026-10-26) showed 17 results with titles, dates, and locations, including examples in Frankfurt/Main, Eschborn, and online. The capture did not show per-course provider, price, or direct original listing URL, so no individual course data has been included."
+    }
+  ]
+}
