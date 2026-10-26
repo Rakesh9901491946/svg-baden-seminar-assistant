@@ -39,6 +39,13 @@ class TestAppCore(unittest.TestCase):
         self.assertTrue(matches and all(s["url"].startswith("https://") for s in matches))
         self.assertIn("SVG-Baden", answer)
 
+    def test_answer_excerpt_ends_at_sentence_boundary(self):
+        source = {"id": "long", "title": "Long source", "url": "https://www.svg-baden.de/", "retrieved_at": "2026-10-26", "provider": "SVG-Baden", "text": "First sentence ends here. " + "Long following sentence " * 60 + "."}
+        answer, no_answer = make_answer("first sentence", [source])
+        self.assertFalse(no_answer)
+        self.assertIn("First sentence ends here.", answer)
+        self.assertNotIn("Long following sentence Long following", answer)
+
     def test_missing_api_key_is_supported(self):
         key, model = get_config({})
         self.assertFalse(key)

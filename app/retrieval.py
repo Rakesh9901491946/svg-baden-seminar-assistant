@@ -31,7 +31,19 @@ def is_sensitive_question(question: str) -> bool:
 def make_answer(question: str, matches: list[dict[str, Any]]) -> tuple[str, bool]:
     if not matches:
         return ("I couldn't find enough information in the available published sources to answer that. Please check the relevant SVG-Baden page or contact SVG-Baden through its official website.", True)
-    snippets = [f"**{s['title']}**: {s['text'][:560]}" for s in matches]
+    def excerpt(source_text: str, max_chars: int = 560) -> str:
+        sentences = re.split(r"(?<=[.!?])\s+", source_text.strip())
+        selected = []
+        for sentence in sentences:
+            candidate = " ".join(selected + [sentence])
+            if selected and len(candidate) > max_chars:
+                break
+            selected.append(sentence)
+            if len(" ".join(selected)) >= max_chars:
+                break
+        return " ".join(selected)
+
+    snippets = [f"**{s['title']}**: {excerpt(s['text'])}" for s in matches]
     answer = "\n\n".join(snippets)
     if is_sensitive_question(question):
         answer += "\n\nThis is only a summary of published information, not legal, insurance, occupational-safety, or compliance advice. Please ask an SVG-Baden specialist."
