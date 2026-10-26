@@ -1,11 +1,22 @@
 """Optional Groq-compatible hosted inference. Missing keys safely use retrieval only."""
 from __future__ import annotations
+import html
 import os
+import re
 import requests
 
 MAX_QUESTION_CHARS = 500
 MAX_CONTEXT_CHARS = 5000
 MAX_CALLS_PER_SESSION = 5
+
+
+def normalize_answer(text: str) -> str:
+    """Convert model-emitted HTML line breaks to Markdown-friendly newlines."""
+    text = html.unescape(text or "")
+    text = re.sub(r"(?i)<\s*br\b[^>]*>|<\s*/\s*br\s*>", "\n", text)
+    text = re.sub(r"[ \t]+\n", "\n", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
 
 def get_config(secrets=None):
     secrets = secrets or {}
@@ -23,11 +34,11 @@ def generate(question: str, context: str, api_key: str, model: str, timeout: int
         headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
         json={"model": model, "temperature": 0.1, "max_tokens": 450,
               "messages": [
-                  {"role": "system", "content": "Answer only from the provided published source excerpts. If insufficient, say so. Do not give legal, insurance, occupational-safety, or compliance advice; refer to a specialist. Never infer seminar details or provider."},
+                  {"role": "system", "content": "Answer only from the provided published source excerpts. If insufficient, say so. Do not give legal, insurance, occupational-safety, or compliance advice; refer to a specialist. Never infer seminar details or provider. Format with Markdown paragraphs, bullets, or tables. Do not emit HTML tags such as <br>."},
                   {"role": "user", "content": f"SOURCE EXCERPTS:\n{context}\n\nQUESTION:\n{question}"}
               ]}, timeout=timeout)
     if response.status_code == 429:
         raise RuntimeError("Free-tier rate limit reached. Try again later; no other provider will be used.")
     response.raise_for_status()
     data = response.json()
-    return data["choices"][0]["message"]["content"].strip()
+    return normalize_answer(data["choices"][0]["message"]["content"])
